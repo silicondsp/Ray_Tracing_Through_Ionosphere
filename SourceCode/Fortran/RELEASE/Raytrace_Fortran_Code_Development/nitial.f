@@ -1,0 +1,321 @@
+C   OT REPORT 75-76
+C   A VERSATILE THREE·DIMENSIONAL RAY TRACING COMPUTER
+C   PROGRAM FOR RADIO WAVES
+C   IN THE IONOSPHERE
+C   
+C   R. MICHAEL JONES
+C   JUDITH J. STEPHENSON
+C   
+C   U.S.  DEPARTMENT OF COMMERCE
+C   October 1975
+C
+C    FORTRAN Code from Scanned Report and OCR in 2002 
+C    by Sasan Ardalan
+C
+C    Compiles and Links using gfortran
+C    
+C    Rework in December 2018 by Sasan Ardalan
+C
+C    Detailed work to match source code with published code.
+C    Major work to change from CDC Main Frame Fortran
+C    to gfortran
+C
+C    Massive effort in debugging.
+C    Also debug option for  printing of variables
+C
+C    This FORTRAN Code available at:
+C        http://www.radiocalc.com
+C
+C    Visit the site for plots of raytracing
+C    Also translation to Mathematica by Sasan Ardalan
+C
+C    Do Not Remove This Notice
+C
+C
+C PROGRAM NITIAL	NITI00i
+C234567
+C CHECKED
+C	SETS THE INITIAL CONDITIONS FOR EACH RAY AND CALLS TRACE	NITIO02
+
+       CHARACTER MFLD(2)	
+       COMMON /DDEBUG/ debug        
+       COMMON /CONST/ PI,PIT2,PID2,DEGS,RAD,K,C,LOGTEN	
+       COMMON /FLG/ NTYP,NEWWR,NEWWP,PENET,LINES,IHOP,HPUNCH		
+       COMMON /RIN/ MODRIN(3),COLL,FIELD,SPACE,N2,N2I,PNP(10),POLAR,		
+     1       LPOLAR,SGN	
+       COMMON /RK/ N,STEP, MODE,E1MAX,E1MIN,E2MAX,E2MIN,FACT,RSTART	
+		
+
+       COMMON /XX/ MODX(2),X,PXPR,PXPPTH,PXPT,HMAX
+       COMMON /YY/ MODY,Y(16) /ZZ/ MODZ,Z(4)	
+       COMMON R(20),T,STP,DRDT(20) /WW/  ID(10),W0,W(400)	
+       EQUIVALENCE (RAY,W(1)),(EARTHR,W(2)),(XMTRH,W(3)) ,(TLAT,W(4)),	
+     1    (TLON,W(5)),(F,W(6)),(FBEG,W(7)),(FEND,W(8)),(FSTEP,W(9)),	
+     2    (AZ1,W(10)),(AZBEG,W(11)),(AZEND,W(12)),(AZSTEP,W(13)),	
+     3    (BETA,W(14)),(ELBEG,W(15)),(ELEND,W(16)),(ELSTEP,W(17)),
+     4 (ONLY,W(21)),(HOP,W(22)),(MAXSTP,W(23)),(PLAT,W(24)),(PLON,W(25)) 
+     5 ,(INTYP,W(41)),(MAXERR,W(42)),(ERATIO,W(43)),(STEP1,W(44)),	
+     6    (STPMAX,W(45)),(STPMIN,W(46)),(FACTR,W(47)),(SKIP,W(71)),	
+     7	  (RAYSET,W(72)),(PLT,W(81)),(PERT,W(150))
+
+                CHARACTER(10) KOLL	
+ 
+		LOGICAL SPACE,NEWWR,NEWWP,PENET	
+		REAL N21,N2I,LOGTEN,K,MAXSTP,INTYP,MAXERR,MU
+		
+		COMPLEX PNP, POLAR,LPOLAR
+
+                INTEGER KNFREQ	
+CSHA		NDATE=IDATE(0)	
+CSHA        NDATE=8H20020724
+CSHA		SECOND=KLOCK(0)*.001	
+                SECOND=9999.
+		KOLL=4H  NO		
+                debug=0
+		IF (COLL.NE.0.) KOLL="WITH"	
+C********* CONSTANTS		
+		PI=3.1415926536		
+		PIT2=2.*PI		
+		PID2=PI/2.		
+		DEGS=180./PI		
+		RAD=PI/180.		
+		C=2.997925E5		
+		K=2.81785E-15*C**2/PI	
+		LOGTEN=ALOG(10.)		
+C********* INITIALIZE SOME VARIABLES IN THE W ARRAY	
+		DO 5 NW=1,400		
+   5    W(NW)=0.		
+		PLON=0.		
+		PLAT=PID2		
+		EARTHR=6370.		
+		INTYP=3.		
+		MAXERR=1.E-4		
+		ERATIO=50.		
+		STEP1=1.		
+		STPMAX=100.		
+		STPMIN=1.E-8		
+		FACTR=0.5		
+		MAXSTP=1000.		
+		HOP=1.		
+
+C******** READ W ARRAY AND PRINT NON-ZERO VALUES	
+   10   CALL READ W	
+
+	    F=0.
+	    BETA=0.
+	    AZ1=0.	
+	    IF (SKIP.EQ.0.) SKIP=MAXSTP	
+   12	RAY=SIGN(1. , RAY)	
+	    NTYP=2.+FIELD*RAY
+	    	
+	    GO TO (13,14,15), NTYP	
+
+   13	MFLD(1)="EXTRAORD"
+        MFLD(2)="INARY"
+        GO TO 16	
+
+   14	MFLD(1)="NO FIELD"
+	    MFLD(2)= " "
+	    GO TO 16	
+
+CP-69
+ 15		MFLD(1)="ORDINARY"
+		MFLD(2)= "        "                         	
+16	    MODSAV=MODX(2)	
+		IF (PERT.EQ.0.) MODX(2)=6H       
+c		IF (RAYSET.NE.0.) PUNCH 2000, ID,MODX(1),(W(NW),NW=101,107),	
+c     1  MODX(2)%(W(NW)gNW=1519157)gMODY9(W(NW)gNW=2019207)9	NIT1071
+c	 2  MODZ9(W(NW)gNW-2519257)	NIT1072
+
+c2000		FORMAT (10A8,4(/A8,2X,7E10.3))	
+CSHA		PRINT 1000, ID,NDATE,MODX,MOOV,MODZ,MODRIN,MFLD,KOLL	
+          PRINT 1000, ID,NDATE,MODX,MOOV,MODZ,MODRIN,MFLD,KOLL	
+1000     FORMAT (1H1,10A8,25X,A8/4(1X,A8),24X,3A8,1X,A8,A5,1X,A4,	
+     1   11H COLLISIONS/)	
+		PRINT 1050	
+
+1050  FORMAT("INITIAL VALUES FOR THE W ARRAY--ALL ANGLES IN RADIANS",         
+     1"   ONLY NONZERO-VALUES PRINTED/")	
+
+		DO 17 NW=1,400	
+		IF (W(NW).NE.0.) PRINT 1700, NW,W(NW)	
+1700	FORMAT (I4,E19.11)	
+ 17	    CONTINUE	
+
+C********* LET SUBROUTINES PRINTR AND RAYPLT KNOW THERE IS A NEW W ARRAY
+
+		NEWWP=.TRUE.	
+		NEWWR=.TRUE.	
+C********* INITIALIZE PARAMETERS FOR INTEGRATION SUBROUTINE RKAM	
+		N=6	
+		DO 20 NR=7,20	
+		IF (W(50+NR).NE.0.) N=N+1	
+ 20     CONTINUE	
+		MODE=INTYP	
+		STEP=STEP1	
+		E1MAX=MAXERR	
+		E1MIN=MAXERR/ERATIO	
+		E2MAX=STPMAX	
+		E2MIN=STPMIN	
+		FACT=FACTR	
+
+C********* DETERMINE TRANSMITTER LOCATION IN COMPUTATIONAL COORDINATE	
+C********* SYSTEM (GEOMAGNETIC COORDINATFS IF DIPOLE FIELD I!j USED) 	
+
+        RO=EARTHR+XMTRH	
+        SP=SIN (PLAT)	
+        CP=SIN (PID2-PLAT)	
+        SDPH=SIN (TLON-PLON)	
+        CDPH=SIN (PID2-(TLON-PLON))	
+        SL=SIN (TLAT)	
+        CL=SIN (PID2-TLAT)	
+        ALPHA=ATAN2(-SDPH*CP,-CDPH*CP*SL+SP*CL)	
+        THO=ACOS (CDPH*CP*CL+SP*SL)	
+        PHO=ATAN2(SDPH*CL,CDPH*SP*CL-CP*SL)	
+C********* LOOP ON FREQUENCY9 AZIMUTH ANGLE9 AND ELEVATION ANGLE	
+        NFREQ=1	
+        IF (FSTEP.NE.0.) NFREQ=(FEND-FBEG)/FSTEP+1.5	
+        NAZ=1	
+        IF (AZSTEP.NE.0.) NAZ=(AZEND-AZBEG)/AZSTEP+1.5	
+        NBETA=1
+CSHA        IF (ELSTEP.NE.0.) NBETA=(ELEND-ELBEG)/ELSTEP+1.5
+        IF (ELSTEP.NE.0.) NBETA=(ELEND-ELBEG)/ELSTEP+1.5	
+
+ 
+        KNFREQ=INT(NFREQ)
+      print 8148,NBETA,NFREQ, NAZ, KNFREQ 
+ 8148    format( " xxxxxx NBETA,NFREQ, NAZ KNFREQ ",4(2x,I2))
+CSHA        DO 50 KK=1,KNFREO
+        NF=KK	
+        F=FBEG+(NF-1)*FSTEP
+CSHA FORTRAN NFREQ is floating point. Thus Do loop never ends!! NF keeps incrementing
+CSHA        if(NF>1) goto 99
+
+      print 8548,NBETA,KNFREO, NAZ ,NF,F
+ 8548    format( " xxxxxx2222 NBETA,NFREQ, NAZ  NF",4(2x,I2),2x, E16.4)
+	
+        DO 45 J=1,NAZ	
+        
+        AZ1=AZBEG+(J-1)*AZSTEP
+C
+C Bug in gfortran 
+C
+        AZ1=45.0                      
+        AZA=AZ1/DEGS
+        AZ1=AZA
+
+         	
+        GAMMA=PI-AZA+ALPHA	
+        SGAMMA=SIN (GAMMA)	
+        CGAMMA=SIN (PID2-GAMMA)	
+        ELBEG=W(15)
+        ELBEG2=0/DEGS
+        
+        DO 40 I=1,NBETA	
+CSHA       BETA=ELBEG+(I-1)*ELSTEP	
+        BETA=ELBEG2+(I-1)*ELSTEP 
+
+        
+        print 8188,I,BETA*DEGS,ELBEG*DEGS,ELEND*DEGS,ELSTEP*DEGS,
+     5    ELBEG2*DEGS,W(251) 
+ 8188    format( " YYYY  I= ",I2, " BETA=",F14.2," ELBEG=",F14.2,
+     4     " ELEND=",F14.2, " ELSTEP=",F14.2," ELSTEP2=",F14.2,
+     5   " W(251) =",E14.6 )
+
+CP-70
+        
+       
+        EL=BETA*DEGS	
+        CBETA=SIN(PID2-BETA)	
+        R(1)=RO		
+        R(2)=THO		
+        R(3)=PHO		
+        R(4)=SIN(BETA)	
+        R(5)=CBETA*CGAMMA	
+        R(6)=CBETA*SGAMMA
+        T=0.
+        RSTART=1.
+        
+         if (debug.eq.1.) print 8888, R(1),R(2),R(3),R(4),R(5),R(6)
+ 8888    format("NITIAL: ",6(E14.6,2x))
+        	
+C	SGN=l-	(NEED FOR RAY TRACING IN COMPLEX SPACE-)	
+
+C********* ALLOW IONOSPHERIC MODEL SUBROUTINES TO READ AND PRINT DATA 	
+
+      CALL RINDEX
+      
+          if(debug.eq.1.) print 8889, R(1),R(2),R(3),R(4),R(5),R(6)
+ 8889    format("NITIAL after rindex: ",6(E14.6,2x))
+     
+      	
+      IF (I.NE.1.AND.NPAGE.LT.3.AND.LINES.LE.17) GO TO 25	
+
+      NPAGE =0
+      LINES= 0	
+CSHA      PRINT 1000, ID,NDATE,MODX,MODY,MODZ,MUDRIN,MFLD,KOLL
+      PRINT 1000, ID,NDATE,MODX,MODY,MODZ,MUDRIN,MFLD,KOLL
+      PRINT 2400, F,AZ1*DEGS	
+
+2400  FORMAT(18X,10HFREQUENCY= ,F12.6,"MHZ ,AZIMUTH ANGLE OF", 
+     1"TRANSMISION =   ",F12.6,4H DEG)	
+25    NPAGE=NPAGE+1	
+
+	  PRINT 2500, EL	
+2500	FORMAT (31X,33HELEVATION ANGLE OF TRANSMISSION =,F12.6,4H DEG)	
+	  IF (N2.GT.0.) GO TO 30	
+	  CALL ELECTX	
+	  FN=SIGN (SQRT (ABS (X))*F,X)	
+	   PRINT 2900, FN	
+
+2900  FORMAT (58HOTRANSMITTER IN EVANESCENT REGION, TRANSMISSION IMPOSS
+     1BLE/20H0PLASMA FREGUENCY = ,E17.10)	
+
+		GO TO 44	
+ 30	    MU=SQRT (N2/(R(4)**2+R(5)**2+R(6)**2))	
+		DO 34 NNN=4,6	
+  34	R(NNN)=R(NNN)*MU	
+		DO 35 NNN=7,N	
+  35	R(NNN)=0.	
+		CALL TRACE
+
+
+
+
+
+         print 8338,NBETA,NFREQ, NAZ,I	
+		OSEC=SECOND	
+CSHA		SECOND=KLOCK(0)*.001	
+		SECOND=	9990.0
+		DIFF=SECOND-OSEC	
+		PRINT 3500, DIFF	
+3500	FORMAT (36X,26HTHIS RAY CALCULATION TOOK ,F8.3,4H SEC)	
+		IF (PENET.AND.ONLY.NE.0..AND.IHOP.EQ.1) GO TO 44	
+
+ 40	    CONTINUE	
+        print 8448,NBETA,NFREQ, NAZ,I,NF,J
+ 8448    format( " xxxxxx111 NBETA,NFREQ, NAZ  ",6(2x,I2))
+
+ 44     IF (PLT.NE.0.) CALL ENDPLT	
+ 45	    CONTINUE	
+
+      IF(PENET.AND.ONLY.NE.0..AND.IHOP.EQ.1.AND.
+     5    NAZ.EQ.1.AND.NBETA.EQ.1) 
+     1    GO TO 55	
+
+
+         print 8338,NBETA,NFREQ, NAZ,I
+ 8338    format( " xxxxxx NBETA,NFREQ, NAZ  ",4(2x,I2))
+  50    CONTINUE
+
+  99      CONTINUE	
+
+ 55	    IF (RAYSET.NE.0.) PRINT 5000		
+ 5000    FORMAT (78X,1H-)	
+		MODX(2)=MODSAV	
+CSHA		GO TO 10		
+	   
+
+CP-71
+
+         END	

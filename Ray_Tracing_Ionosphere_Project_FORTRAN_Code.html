@@ -1,0 +1,272 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html><!-- InstanceBegin template="/Templates/radiocalc_general.dwt" codeOutsideHTMLIsLocked="false" -->
+<!-- DW6 -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Ray Tracing Through the IONOSPHERE FOTRAN Code</title>
+<!-- InstanceEndEditable -->
+
+ <link rel="stylesheet" href="../simple.css" type="text/css"> 
+   <!--<link rel="stylesheet" href="emx_nav_left.css" type="text/css"> -->
+
+<script type="text/javascript">
+<!--
+var time = 3000;
+var numofitems = 7;
+
+//menu constructor
+function menu(allitems,thisitem,startstate){ 
+  callname= "gl"+thisitem;
+  divname="subglobal"+thisitem;  
+  this.numberofmenuitems = 7;
+  this.caller = document.getElementById(callname);
+  this.thediv = document.getElementById(divname);
+  this.thediv.style.visibility = startstate;
+}
+
+//menu methods
+function ehandler(event,theobj){
+  for (var i=1; i<= theobj.numberofmenuitems; i++){
+    var shutdiv =eval( "menuitem"+i+".thediv");
+    shutdiv.style.visibility="hidden";
+  }
+  theobj.thediv.style.visibility="visible";
+}
+				
+function closesubnav(event){
+  if ((event.clientY <48)||(event.clientY > 107)){
+    for (var i=1; i<= numofitems; i++){
+      var shutdiv =eval('menuitem'+i+'.thediv');
+      shutdiv.style.visibility='hidden';
+    }
+  }
+}
+// -->
+</script>
+<style type="text/css">
+<!--
+body {
+	background-color: #FFFFFF;
+	background-image: url(../bg.jpg);
+}
+.style1 {
+	font-family: "Times New Roman", Times, serif;
+	font-size: 200%;
+	font-weight: bold;
+	font-style: italic;
+	color: #000000;
+}
+ 
+-->
+
+ 
+.style2 {
+	font-family: "Times New Roman", Times, serif;
+	 
+	font-size: 100%;
+	 
+	color: #0c5ebf;
+}
+ 
+</style>
+<!-- InstanceBeginEditable name="head" --><!-- InstanceEndEditable -->
+</head>
+ <link rel="stylesheet" href="../emx_nav_left.css" type="text/css">
+
+<body onmousemove="closesubnav(event);"> 
+<div class="skipLinks"> <a href="#siteInfo"></a> </div>
+<div id="masthead2"> 
+  <table width="1329" border="0">
+    <tbody>
+      <tr>
+        <th width="501" scope="col"><div align="left"><img src="../BannerWork/RadioCalcBanner.png" width="418" height="174" alt=""/></div></th>
+        <th width="818" scope="col"><div align="left"><strong><img src="../BannerWork/AdobeStock_92633058_Tower.jpg" width="39" height="51" alt=""/><img src="../BannerWork/RadioCalCpCOM.jpg" width="419" height="46" alt=""/></strong></div></th>
+      </tr>
+    </tbody>
+  </table>
+  <div id="globalNav">
+    <div id="globalLink"> 
+    
+      <a href="../index.html" id="gl1" class="glink" >Home</a><a href="../RadioPropagation.html" id="gl4" class="glink" >RF Propagation</a><a href="../MultiConductorCAD.html" id="gl2" class="glink" >Multi Conductor CAD</a><a href="http://www.silicondsp.com/Capsim" id="gl4" class="glink" >DSP/Communications</a>
+<a href="Ray_Tracing_Ionosphere_Project.html" id="gl5" class="glink" >Ionospheric Propagation</a><a href="../Contact.html" id="gl6" class="glink" >Contact</a> 
+    </div> 
+    <!--end globalLinks--> 
+    <!-- <form id="search" action=""> 
+      <input name="searchFor" type="text" size="10"> 
+      <a href="">search</a> 
+    </form> --> 
+</div> 
+  <!-- end globalNav --> 
+  <div id="subglobal1" class="subglobalNav"><BR>
+ </div>
+  
+<!-- end masthead --> 
+
+ 
+  
+    <!-- InstanceBeginEditable name="PageName" -->
+    <h1 align="center" class="style1">Ray Tracing Through the IONOSPHERE</h1>
+    <h1 align="center" class="style1">FORTRAN  Code </h1>
+    <p align="center">&nbsp;</p>
+    <strong>Ray Tracing Through the IONOSPHERE    Open Source Mathematica &reg; Code Click</strong> <a href="Ray_Tracing_Ionosphere_Project.html">Here</a>.    
+    <p><strong>For Description</strong> Click <a href="#description">Here</a></p>
+    <table width="1395" border="1">
+      <tbody>
+        <tr>
+          <th width="40" scope="col"><div align="center">Case</div></th>
+          <th width="1022" scope="col">Description</th>
+          <th width="130" scope="col">Code</th>
+          <th width="175" scope="col">Result Plots</th>
+        </tr>
+        <tr>
+          <td><div align="center">1</div></td>
+          <td>FORTRAN Code for Ray Tracing Radio Waves Through the IONOSPHERE. Cleaned up and debugged from Scan and OCR of [Jones, Stephenson, 1975] Original CDC Mainframe FORTRAN. Compiles with <em>gfortran</em>. Note: Use a Professional Compiler until some issues with <em>gfortran</em> need to be resolved. </td>
+          <td><p><a href="SourceCode/Fortran/RELEASE/Raytrace_Fortran_Code_Development_v0p1.tar.gz">FORTRAN</a></p>
+          <p> (7.7 MBytes)</p></td>
+          <td><p><a href="SourceCode/Fortran/FORTRAN_Ray_Tracing_Results/Plots/raytracing_fortran_results_cap7_grouped.png">Ray Trace Multiple Elevations </a></p>
+          <p><a href="SourceCode/Fortran/FORTRAN_Ray_Tracing_Results/Plots/raytracing_fortran_results_cap7_grouped-fx_bnds_2.png">Fixed Bounds</a></p></td>
+        </tr>
+        <tr>
+          <td><div align="center">2</div></td>
+          <td>Ray Trace Results Plotted</td>
+          <td><p><a href="Documentation/RayMatrix.wdx"> </a><a href="Documentation/W.wdx"></a></p></td>
+          <td><p><a href="SourceCode/Fortran/FORTRAN_Ray_Tracing_Results/Plots/raytracing_fortran_results_cyan_black.png">Individual Plots</a></p>
+          <p><a href="SourceCode/Fortran/FORTRAN_Ray_Tracing_Results/Plots/raytracing_fortran_results_cap7_grouped.png">Grouped</a></p></td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td>Parameter text file. Place in same directory as FORTRAN Executable.</td>
+          <td><p> <a href="Documentation/ray.dat"> ray.dat</a><a href="Documentation/ray.csv"></a></p></td>
+          <td>--</td>
+        </tr>
+        <tr>
+          <td><div align="center">3</div></td>
+          <td>Latex File for Hamiltonian, Derivatives and Symbol Table</td>
+          <td><p><a href="Documentation/formulas-ray_tracing.tex">Latex File</a></p></td>
+          <td><div align="center"><a href="Documentation/formulas-ray_tracing.pdf"><img src="../pdf.gif" width="22" height="21" alt=""/></a><a href="../MultiConductorCAD/Microstrip/Far_End_Cross_Talk_S41_Measurements_Hill_1994.png"></a></div></td>
+        </tr>
+      </tbody>
+    </table>
+    <p>&nbsp;</p>
+   <h2 class="style1"><div id=”tools”> Tools</div></h2>
+    <table width="1129" border="1">
+      <tbody>
+        <tr>
+          <th width="47" scope="col"><div align="center"><div id="tools1">Item</div></th>
+          <th width="484" scope="col">Description</th>
+          <th width="87" scope="col">Code</th>
+          <th width="81" scope="col">WEB View</th>
+          <th width="81" scope="col">Graphic</th>
+        </tr>
+        <tr>
+          <td><div align="center">1</div></td>
+          <td>Java Open Source Plotting Package ( <a href="http://www.ccdsp.org/IIPPlot/index.html">IIPPLOT</a>)</td>
+          <td><a href="http://www.ccdsp.org/IIPPlot/index.html">CCDSP</a></td>
+          <td><a href="SourceCode/Mathematica/RayPathPostProcessingPropagationVector_HTML/RayPathPostProcessingPropagationVector.htm">--</a></td>
+          <td><a href="SourceCode/Fortran/FORTRAN_Ray_Tracing_Results/Plots/raytracing_fortran_results_cyan_black.png">Ray Tracing</a></td>
+        </tr>
+      </tbody>
+    </table>
+    <h2 class="style1">References:</h2>
+    <p style="margin-left:1em;">1- R. Michael Jones, Judith J. Stephenson, <strong>A Versatile Three-Dimensional  Ray Tracing <br>
+Compute Program for Radio Waves in the Ionosphere</strong>, OT Report 75-75, US Department of Commerce,  October 1975 <span style="margin-left:1em;"><a href="https://www.its.bldrdoc.gov/publications/download/75-76.pdf
+
+"><img src="../pdf.gif" width="22" height="21" alt=""/>PDF Report</a></span>.</p>
+    <h1 align="center" class="style1" style="margin-left:1em;"><div id="description">Description</div></h1>
+    <p style="margin-left:1em;">&nbsp;</p>
+    
+<p style="margin-left:1em;">FORTRAN Code from Scanned Report (OT Report 75-76) and OCR in 2002 by Sasan Ardalan
+ 
+<p style="margin-left:1em;">     Compiles and Links using <a href="https://gcc.gnu.org/fortran/">gfortran</a>
+<p style="margin-left:1em;">     Rework in December 2018 by Sasan Ardalan
+ 
+ <p style="margin-left:1em;">    Detailed work to match source code with published code. Major work to change from CDC Main Frame Fortran to <a href="https://gcc.gnu.org/fortran/">gfortran</a>.
+ <p style="margin-left:1em;">     Massive effort in debugging.
+ <p style="margin-left:1em;">    Also debug option for  printing of variables. See <em>nitial.f</em>
+ <p style="margin-left:1em;">     This FORTRAN Code available at:
+<p style="margin-left:1em;">         <a href="http://www.radiocalc.com">http://www.radiocalc.com</a>
+<p style="margin-left:1em;">     Visit the site for plots of raytracing.
+<p style="margin-left:1em;">     Also translation to Mathematica by Sasan Ardalan. Click <a href="Ray_Tracing_Ionosphere_Project.html">here</a> for Mathematica Code.
+     
+ <h2 style="margin-left:1em;">PERL Script and Plotting </h2>
+ <p style="margin-left:1em;">    We have also included the handy PERL script:
+ <p style="margin-left:1em;">         <em>process_raytracing.pl </em>
+ <p style="margin-left:1em;">This is in the <em>Results</em> folder.
+ 
+ <p style="margin-left:1em;">Execute:
+ <p style="margin-left:1em;"> 
+./raypath &lt;ray.dat&gt; results.txt
+ <p style="margin-left:1em;">Edit <em>results.txt</em> to get data for a trace ( say at 45 degrees elevation). Call it <em>result_45.txt </em> 
+ <p style="margin-left:1em;">perl <em>process_raytracing.pl </em> &lt; result_45.txt&gt; ray_trace_45.txt  
+ <p style="margin-left:1em;">Plot the result. Use 
+ <p style="margin-left:1em;">java -jar IIPPLOT.jar ray_trace_45.txt
+ <p style="margin-left:1em;">See <a href="http://www.ccdsp.org/IIPPlot/index.html">here</a> for IIPPLOT Open Source Plotting Package.
+ <p style="margin-left:1em;">
+ <p style="margin-left:1em;">     Note that we added the text "uu" to each relavant line in the FORTRAN results so that the line can be grabbed  with PERL   and the Height and Range extracted (and Swapped) to plot the ray trace.
+
+  <p style="margin-left:1em;"><strong>Notes on FORTRAN Code     </strong>
+  <ol>
+    <li>Had to change  SSTEP error in reach.f to 0.5E-3 so that elevation angles 
+    below 30 degrees work ( 15 and 0). </li>
+    <li>Results follow the OT Report 75-76, however do not match which could be for a
+    number of reasons. Need to verify that models are exactly the same.</li>
+    <li>At close to and including elevation of 90 degrees results are off 
+    when wave reversus. The range starts to decrease</li>
+    <li>If we continue to debug  it would never end and you would not be reading this.</span> </li>
+    <li>GFORTRAN needs to be checked against a commercial or another FORTRAN complier.</li>
+    <li>Cases where gfortran  doing something or not doing something for no good reason.</li>
+    <li>Will try and document and submit to GFORTRAN group. </li>
+    <li>Check <em>nitial.f</em> for some hardwired values ( W values ignored).</li>
+    <li>Added COMMON  /RK/ DELY ,BET ,XV ,FV ,YU ,RR,LL,MM,ALPHA,EPM to rkam.f and trace.f 
+        this was a major change since original CDC FORTRAN must have assumed variable persistance
+    between subroutine calls. </li>
+    <li> In CDC FORTRAN DRDT(1) was set using only DRDT. Fixed this in <em>hamltn.f</em></li>
+  </ol>
+<p style="margin-left:1em;">
+<p style="margin-left:1em;">Note in FORTRAN Elevation of 90 Degrees is Vertical Launch. 
+<p style="margin-left:1em;">
+<h2 class="style1" style="margin-left:1em;">Hamiltonian</h2>
+<p style="margin-left:1em;">&nbsp;</p>
+<p align="center" style="margin-left:1em;"><img src="Documentation/Spherical_Coordinates.png" width="486" height="435" alt=""/></p>
+    <p align="center" style="margin-left:1em;"><strong>Spherical Coordinates</strong></p>
+    <p style="margin-left:1em;">&nbsp;</p>
+    <p style="margin-left:1em;"><img src="Documentation/List_of_Symbols.png" width="818" height="473" alt=""/></p>
+    <p align="left" style="margin-left:1em;"><strong>Hamiltonian and Derivatives</strong></p>
+    <p style="margin-left:1em;"><img src="Documentation/Hamiltoinian_and_Derivatives_Ray_Tracing.png" width="690" height="543" alt=""/></p>
+    <p align="left" style="margin-left:1em;"><strong>Ray Vector</strong></p>
+    <p style="margin-left:1em;"><img src="Documentation/Ray_Vector.png" width="445" height="260" alt=""/></p>
+    <p align="left" style="margin-left:1em;"><strong>Ray Vector Options</strong></p>
+    <p style="margin-left:1em;"><img src="Documentation/Ray_Vector_Options.png" width="714" height="303" alt=""/></p>
+    <h2 align="center"><span class="style1"> </span></h2>
+    <p align="center">&nbsp;</p>
+    <p align="center">&nbsp;</p>
+    <div id=”notes111”></div>
+<div id="notes"><strong>Notes</strong></div>
+     <p style="margin-left:1em;">&nbsp; </p>
+    <!-- InstanceEndEditable -->
+     
+   
+  <!-- InstanceBeginEditable name="Contents" -->
+ 
+  <!-- InstanceEndEditable -->
+  <div id="siteInfo">
+  Credits: Tower AdobeStock 92633058. Banner AdobeStock 108624876
+  <br><a href="http://www.silicondsp.com"><img src="../sd-logo-tm_sm.gif" width="67" height="69" alt=""/>About </a> | <a href="../Contact.html">Contact</a>  | &copy;1995-2017<em>Silicon DSP Corporation</em>, All Rights Reserved</div> 
+</div> 
+<!--end pagecell1--> 
+<br> 
+<script type="text/javascript">
+    <!--
+      var menuitem1 = new menu(7,1,"hidden");
+			var menuitem2 = new menu(7,2,"hidden");
+			var menuitem3 = new menu(7,3,"hidden");
+			var menuitem4 = new menu(7,4,"hidden");
+			var menuitem5 = new menu(7,5,"hidden");
+			var menuitem6 = new menu(7,6,"hidden");
+			var menuitem7 = new menu(7,7,"hidden");
+    // -->
+    </script> 
+</body>
+<!-- InstanceEnd --></html>

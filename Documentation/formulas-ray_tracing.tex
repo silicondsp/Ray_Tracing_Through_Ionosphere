@@ -1,0 +1,192 @@
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+
+% This is a simple template for a LaTeX document using the "article" class.
+% See "book", "report", "letter" for other types of document.
+
+\documentclass[11pt]{article} % use larger type; default would be 10pt
+
+\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+
+%%% Examples of Article customizations
+% These packages are optional, depending whether you want the features they provide.
+% See the LaTeX Companion or other references for full information.
+
+%%% PAGE DIMENSIONS
+\usepackage{geometry} % to change the page dimensions
+\geometry{a4paper} % or letterpaper (US) or a5paper or....
+% \geometry{margins=2in} % for example, change the margins to 2 inches all round
+% \geometry{landscape} % set up the page for landscape
+%   read geometry.pdf for detailed page layout information
+
+\usepackage{graphicx} % support the \includegravarphics command and options
+
+% \usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
+
+%%% PACKAGES
+\usepackage{booktabs} % for much better looking tables
+\usepackage{array} % for better arrays (eg matrices) in maths
+\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+\usepackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
+\usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
+% These packages are all incorporated in the memoir class to one degree or another...
+
+\usepackage{amsmath} 
+
+
+%%% HEADERS & FOOTERS
+\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
+\pagestyle{fancy} % options: empty , plain , fancy
+\renewcommand{\headrulewidth}{0pt} % customise the layout...
+\lhead{}\chead{}\rhead{}
+\lfoot{}\cfoot{\thepage}\rfoot{}
+
+%%% SECTION TITLE APPEARANCE
+\usepackage{sectsty}
+\allsectionsfont{\sffamily\mdseries\upshape} % (See the fntguide.pdf for font help)
+% (This matches ConTeXt defaults)
+
+%%% ToC (table of contents) APPEARANCE
+\usepackage[nottoc,notlof,notlot]{tocbibind} % Put the bibliography in the ToC
+\usepackage[titles,subfigure]{tocloft} % Alter the style of the Table of Contents
+\renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
+\renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
+
+%%% END Article customizations
+
+%%% The "real" document content comes below...
+
+\title{Subset of Formulas for Ray Tracing }
+\author{Sasan Ardalan, https://www.radiocalc.com }
+%\date{} % Activate to display a given date or no date (if empty),
+         % otherwise the current date is printed 
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+
+These are key sets of formula for ray tracing from Jones and Stephenson (1975)
+
+                                          
+\subsection{Reference}
+
+R. Michael Jones, Judith J. 
+  Stephenson,"A Versatile Three-Dimensional  Ray Tracing 
+Compute Program for Radio Waves in the Ionosphere,"             
+ OT Report 75-75, US Department of Commerce,  October 1975       
+
+\section{Formulas}
+
+\equation
+H(r,\theta,\varphi, k_r,k_\theta, k_\varphi) = \frac{1}{2}Re \left [\frac{c^2}{\omega^2}(k_r^2+k_\theta^2+k_\varphi^2)-n^2 \right]
+\endequation
+
+
+\equation
+\frac{dr}{d\tau}=\frac{\partial H}{\partial k_r}
+\endequation
+
+\equation
+\frac{d\theta}{d\tau}=\frac{1}{r}\frac{\partial H}{\partial k_\theta}
+\endequation
+
+
+\equation
+\frac{d\varphi}{d\tau}=\frac{1}{r\sin\theta}\frac{\partial H}{\partial k_\varphi}
+\endequation
+
+\equation
+\frac{dk_r}{d\tau}=-\frac{\partial H}{\partial r}+k_\theta\frac{d\theta}{d\tau}+k_\varphi\sin\theta\frac{d\varphi}{d\tau}
+\endequation
+
+
+\equation
+\frac{dk_\theta}{d\tau}=\frac{1}{r}(-\frac{\partial H}{\partial\theta}-k_\theta\frac{dr}{d\tau}+k_\varphi r \cos \theta\frac{d\varphi}{d\tau})
+\endequation
+
+
+\equation
+ \frac{dk_\varphi}{d\tau}=\frac{1}{r\sin\theta }( -\frac{\partial H}{\partial \varphi}-k_\varphi\sin \theta \frac{dr}{d\tau}-k_\varphi r \cos \theta \frac{d\theta}{d\tau})
+\endequation
+
+
+
+
+
+
+\equation
+\frac{d\omega}{d\tau}=\frac{\partial H}{\partial t}
+\endequation
+
+ \equation
+ R(1)=r
+\endequation
+\equation
+ R(2)=\theta
+\endequation
+\equation
+ R(3)=\varphi
+\endequation
+\equation
+ R(4)=k_r
+\endequation
+\equation
+ R(5)=k_\theta
+\endequation
+\equation
+ R(6)=k_\varphi
+\endequation
+
+
+Note R(7) through R(10) Variables  the User Chooses to Integrate.
+
+\equation
+ R(7)=P \text{ Phase  Path in Kilometers}
+\endequation
+
+\equation
+ R(8)=A \text{ Absorption in Decibels}
+\endequation
+
+\equation
+ R(9)=\Delta f  \text{ Doppler Shift in Hertz}
+\endequation
+
+\equation
+ R(10)=s \text{ Geometrical Path Length in Kilometers}
+\endequation
+
+
+ 
+
+\begin{table}[]
+\caption{List of Symbols}
+\label{my-label}
+\begin{tabular}{ll}
+ 
+      $\lambda$                                  & Wavelength                                                                                                                                                                                                                                 \\ 
+      $\lambda_0$                                & Wavelength Free Space                                                                                                                                                                                                                      \\
+ $\tau$                                          & Independent variable in Hamilton's Equations                                                                                                                                                                                               \\
+$\varphi$                                        & Longitude in spherical polar coordinates                                                                                                                                                                                                   \\
+$\omega$                                         & $2\pi f$, angular wave frequency                                                                                                                                                                               \\
+$ \theta $                                       & Colatitude in spherical polar coordinates                                                                                                                                                                                                   \\
+$ k_r, k_\theta, k_\varphi $                     & Components of the propagation vector in the r,$ \theta$ , $\varphi$ directions 
+\\
+  & -- a vector perpendicular to the wave front having a magnitude $\frac{2 \pi}{ \lambda}=\frac{\omega}{v} $
+\\
+f                                                & Wave frequency                                                                                                                                                                                                                             \\
+n                                                & Phase refractive index (in general complex)                                                                                                                                                                                                \\
+r,$\theta$ , $\varphi$                           & Coordinates of a point in spherical polar coordinates                                                                                                                                                                                       \\
+s                                                & Geometric ray path length                                                                                                                                                                                                                  \\
+c                                                & Speed of electromagnetic waves in free space.                                                                                                                                                                                              \\
+t                                                & Time, travel time of a wave packet.                                                                                                                                                                                                        \\
+$\epsilon_0$                                    & Electric permittivity of free space                                                                                                                                                                                                        \\
+                                                 &                                                                                                                                                                                                                                           
+\end{tabular}
+\end{table}
+
+
+
+
+\end{document}

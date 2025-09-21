@@ -1,0 +1,51 @@
+X01  test  case
+  1  0.                 of duplicate w cards, the last one dominates
+  1  -1.0               extraordinary ray
+  3  0.                 transmitter height, km
+  4  40.0        1      transmitter latitude, deg north
+  5  -105.       1      transmitter longitude, deg east
+  7  6.0                initial frequency, MHz
+  9  0.                 dont step frequency
+ 11  45.0        1      initial azimuth angle, degs clockwise from north pole
+ 13  0.                 dont step azimuth angle
+ 15  45          1      initial elevation angle  
+ 16  90.0        1      final elevation angle, deg
+ 17  15.0        1      step in elevation angle, deg
+ 20  200.               receiver height above the earth, km
+ 22  3.                 number of hops
+ 57  2.0                integrate and print phase path
+ 58  2.0                integrate and print absorption
+ 71  5.0                number of steps for each printing
+ 72  1.0                punch raysets
+ 81  1.                 plot projection of ray path on vertical plane
+ 83  40.0        1      left latitude of plot, deg
+ 84  -105.       1      left longitude of plot, deg
+ 85  52.12       1      right latitude of plot, deg
+ 86  -81.8       1      right longitude of plot, deg
+ 87  100.0        1     distance between tic marks, km
+101   6.5               critical freq MHz
+102  300.0              hmax , km
+103  62.0               scale height , km
+104  0.5                alpha chapman layer
+150  1.0                call perturbation subroutine
+151  250.0              z0, km
+152   100.0             sh, scale height, km
+153   0.1               delta
+155   100.              lamdax, horizontal wavelength, km
+156   100.0             lamdaz, vertical wavellength , km
+201   0.8               gyrofrequency on the ground at the equator, MHz
+ 24   78.5       1      accepted standard lat. of north magnetic pole, deg north
+ 25   291.       1      accepted standard long. of north magnetic pole, deg east
+251   3.65     E4       collision freq. at h1, /sec
+252   100.0             h1, reference height, km
+253   .148              a1, exponential decrease of nu with height, /km
+254   30.               collision freq. at h2, /sec
+255   140.              h2, reference height , km
+256   0.0183            a2, exponential decrease of nu with hieght , /km
+                        (a blank in col. 1-3 ends the current w array)
+X01   test case
+ 71   0.                no periodic printout
+ 72   0.                do not punch raysets
+ 81   2.0               plot projection of ray path on the ground 
+ 82   10.0              lateral deviation expansiob factor
+                        ( a blank in col. 1-3 ends the current w array)

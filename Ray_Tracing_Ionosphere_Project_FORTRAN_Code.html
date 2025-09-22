@@ -1,18 +1,118 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<html><!-- InstanceBegin template="/Templates/radiocalc_general.dwt" codeOutsideHTMLIsLocked="false" -->
+<!-- DW6 -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Ray Tracing Through the IONOSPHERE FOTRAN Code</title>
+<!-- InstanceEndEditable -->
 
-<body>>
+ <link rel="stylesheet" href="../simple.css" type="text/css"> 
+   <!--<link rel="stylesheet" href="emx_nav_left.css" type="text/css"> -->
+
+<script type="text/javascript">
+<!--
+var time = 3000;
+var numofitems = 7;
+
+//menu constructor
+function menu(allitems,thisitem,startstate){ 
+  callname= "gl"+thisitem;
+  divname="subglobal"+thisitem;  
+  this.numberofmenuitems = 7;
+  this.caller = document.getElementById(callname);
+  this.thediv = document.getElementById(divname);
+  this.thediv.style.visibility = startstate;
+}
+
+//menu methods
+function ehandler(event,theobj){
+  for (var i=1; i<= theobj.numberofmenuitems; i++){
+    var shutdiv =eval( "menuitem"+i+".thediv");
+    shutdiv.style.visibility="hidden";
+  }
+  theobj.thediv.style.visibility="visible";
+}
+				
+function closesubnav(event){
+  if ((event.clientY <48)||(event.clientY > 107)){
+    for (var i=1; i<= numofitems; i++){
+      var shutdiv =eval('menuitem'+i+'.thediv');
+      shutdiv.style.visibility='hidden';
+    }
+  }
+}
+// -->
+</script>
+<style type="text/css">
+<!--
+body {
+	background-color: #FFFFFF;
+	background-image: url(../bg.jpg);
+}
+.style1 {
+	font-family: "Times New Roman", Times, serif;
+	font-size: 200%;
+	font-weight: bold;
+	font-style: italic;
+	color: #000000;
+}
+ 
+-->
+
+ 
+.style2 {
+	font-family: "Times New Roman", Times, serif;
+	 
+	font-size: 100%;
+	 
+	color: #0c5ebf;
+}
+ 
+</style>
+<!-- InstanceBeginEditable name="head" --><!-- InstanceEndEditable -->
+</head>
+ <link rel="stylesheet" href="../emx_nav_left.css" type="text/css">
+
+<body onmousemove="closesubnav(event);"> 
+<div class="skipLinks"> <a href="#siteInfo"></a> </div>
+<div id="masthead2"> 
+  <table width="800" border="0">
+    <tbody>
+      <tr>
+        <th width="501" scope="col"><div align="left"><img src="../BannerWork/RadioCalcBanner.png" width="418" height="174" alt=""/></div></th>
+        <th width="818" scope="col"><div align="left"><strong><img src="../BannerWork/AdobeStock_92633058_Tower.jpg" width="39" height="51" alt=""/><img src="../BannerWork/RadioCalCpCOM.jpg" width="419" height="46" alt=""/></strong></div></th>
+      </tr>
+    </tbody>
+  </table>
+  <div id="globalNav">
+    <div id="globalLink"> 
+    
+      <a href="../index.html" id="gl1" class="glink" >Home</a><a href="../RadioPropagation.html" id="gl4" class="glink" >RF Propagation</a><a href="../MultiConductorCAD.html" id="gl2" class="glink" >Multi Conductor CAD</a><a href="http://www.silicondsp.com/Capsim" id="gl4" class="glink" >DSP/Communications</a>
+<a href="Ray_Tracing_Ionosphere_Project.html" id="gl5" class="glink" >Ionospheric Propagation</a><a href="../Contact.html" id="gl6" class="glink" >Contact</a> 
+    </div> 
+    <!--end globalLinks--> 
+    <!-- <form id="search" action=""> 
+      <input name="searchFor" type="text" size="10"> 
+      <a href="">search</a> 
+    </form> --> 
+</div> 
+  <!-- end globalNav --> 
+  <div id="subglobal1" class="subglobalNav"><BR>
+ </div>
+  
+<!-- end masthead --> 
 
  
   
-    
+    <!-- InstanceBeginEditable name="PageName" -->
     <h1 align="center" class="style1">Ray Tracing Through the IONOSPHERE</h1>
     <h1 align="center" class="style1">FORTRAN  Code </h1>
     <p align="center">&nbsp;</p>
     <strong>Ray Tracing Through the IONOSPHERE    Open Source Mathematica &reg; Code Click</strong> <a href="Ray_Tracing_Ionosphere_Project.html">Here</a>.    
     <p><strong>For Description</strong> Click <a href="#description">Here</a></p>
-    <table width="1395" border="1">
+    <table width="800" border="1">
       <tbody>
         <tr>
           <th width="40" scope="col"><div align="center">Case</div></th>
@@ -50,8 +150,8 @@
       </tbody>
     </table>
     <p>&nbsp;</p>
-   <h2 class="style1"><div id=”tools”> Tools</div></h2>
-    <table width="1129" border="1">
+   <h2 class="style1"><div id=â€toolsâ€> Tools</div></h2>
+    <table width="800" border="1">
       <tbody>
         <tr>
           <th width="47" scope="col"><div align="center"><div id="tools1">Item</div></th>
@@ -142,14 +242,31 @@ Compute Program for Radio Waves in the Ionosphere</strong>, OT Report 75-75, US 
     <h2 align="center"><span class="style1"> </span></h2>
     <p align="center">&nbsp;</p>
     <p align="center">&nbsp;</p>
-    <div id=”notes111”></div>
+    <div id=â€notes111â€></div>
 <div id="notes"><strong>Notes</strong></div>
      <p style="margin-left:1em;">&nbsp; </p>
-     
+    <!-- InstanceEndEditable -->
      
    
-  <H1><a href="https://www.silicondsp.com">Silicon DSP Corporation</a></H1>
+  <!-- InstanceBeginEditable name="Contents" -->
  
-  
+  <!-- InstanceEndEditable -->
+  <div id="siteInfo">
+  Credits: Tower AdobeStock 92633058. Banner AdobeStock 108624876
+  <br><a href="http://www.silicondsp.com"><img src="../sd-logo-tm_sm.gif" width="67" height="69" alt=""/>About </a> | <a href="../Contact.html">Contact</a>  | &copy;1995-2017<em>Silicon DSP Corporation</em>, All Rights Reserved</div> 
+</div> 
+<!--end pagecell1--> 
+<br> 
+<script type="text/javascript">
+    <!--
+      var menuitem1 = new menu(7,1,"hidden");
+			var menuitem2 = new menu(7,2,"hidden");
+			var menuitem3 = new menu(7,3,"hidden");
+			var menuitem4 = new menu(7,4,"hidden");
+			var menuitem5 = new menu(7,5,"hidden");
+			var menuitem6 = new menu(7,6,"hidden");
+			var menuitem7 = new menu(7,7,"hidden");
+    // -->
+    </script> 
 </body>
-</html>
+<!-- InstanceEnd --></html>

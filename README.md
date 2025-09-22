@@ -12,7 +12,6 @@ Ray Tracing Through the IONOSPHERE using  Mathematica® with Notebook Code.  (c)
  <strong>Ray Tracing Through the IONOSPHERE    FORTRAN  Code. Click <a href="Ray_Tracing_Ionosphere_Project_FORTRAN_Code.html">Here</a>.</strong>
  <img src="raytracing_fortran_results_cap7_grouped-1024x410.png">
  <img src="raytracing_fortran_results_cyan_black-1024x524.png">
- 
     <p><strong>For Description</strong> Click <a href="#description">Here</a></p>
     <table width="1428" border="1">
       <tbody>

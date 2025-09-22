@@ -100,10 +100,9 @@ Ray Tracing Through the IONOSPHERE using  Mathematica® with Notebook Code.  (c)
       </tbody>
     </table>
     <h2 class="style1">References:</h2>
-    <p style="margin-left:1em;">1- R. Michael Jones, Judith J. Stephenson, <strong>A Versatile Three-Dimensional  Ray Tracing <br>
-<strong>Compute Program for Radio Waves in the Ionosphere</strong>, OT Report 75-75, US Department of Commerce,  October 1975<P>
-<a href="https://www.its.bldrdoc.gov/publications/download/75-76.pdf"><img src="pdf.gif" width="22" height="21" alt=""/>PDF Report</a><p>
- 
+    <p style="margin-left:1em;">1- R. Michael Jones, Judith J. Stephenson, <strong>A Versatile Three-Dimensional  Ray Tracing Compute Program for Radio Waves in the Ionosphere</strong>, OT Report 75-75, US Department of Commerce,  October 1975<P>
+<a href="https://www.its.bldrdoc.gov/publications/download/75-76.pdf">PDF Report</a><p>
+<a href="https://www.its.bldrdoc.gov/publications/download/75-76.pdf"><img src="pdf.gif" width="22" height="21" alt=""/></a><p> 
 </p>
     <h1 align="center" class="style1" style="margin-left:1em;"><div id="description">Description</div></h1>
     <p style="margin-left:1em;"> Ray Trace Through the IONOSPHERE  Mathematica&reg; Notebook <br>

@@ -101,9 +101,10 @@ Ray Tracing Through the IONOSPHERE using  Mathematica® with Notebook Code.  (c)
     </table>
     <h2 class="style1">References:</h2>
     <p style="margin-left:1em;">1- R. Michael Jones, Judith J. Stephenson, <strong>A Versatile Three-Dimensional  Ray Tracing <br>
-Compute Program for Radio Waves in the Ionosphere</strong>, OT Report 75-75, US Department of Commerce,  October 1975 <span style="margin-left:1em;"><a href="https://www.its.bldrdoc.gov/publications/download/75-76.pdf
-
-"><img src="pdf.gif" width="22" height="21" alt=""/>PDF Report</a></span>.</p>
+<strong>Compute Program for Radio Waves in the Ionosphere</strong>, OT Report 75-75, US Department of Commerce,  October 1975<P>
+<a href="https://www.its.bldrdoc.gov/publications/download/75-76.pdf"><img src="pdf.gif" width="22" height="21" alt=""/>PDF Report</a><p>
+ 
+</p>
     <h1 align="center" class="style1" style="margin-left:1em;"><div id="description">Description</div></h1>
     <p style="margin-left:1em;"> Ray Trace Through the IONOSPHERE  Mathematica&reg; Notebook <br>
 Copyright (C)2018 Sasan Ardalan <br>
@@ -136,7 +137,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</p>
   <p> 
       The effort is to capture the setup used by Jones and Stephenson.
   </p>     
-  With Mathematica&reg;   vast 3D Graphing capabilties are available as well as 2-D Graphing. Also easy to access Matrices and Arrays for analysis. At any rate getting the excellent work by Jones and Stephenson into Mathematica&reg; opens up a huge opportunity for Research and Development in the area of Ray Tracing through the IONOSPHERE. </p>
+  With Mathematica&reg;,   vast 3D Graphing capabilties are available as well as 2-D Graphing. Also easy to access Matrices and Arrays for analysis. At any rate getting the excellent work by Jones and Stephenson into Mathematica&reg; opens up a huge opportunity for Research and Development in the area of Ray Tracing through the IONOSPHERE. </p>
     <p style="margin-left:1em;">Note in FORTRAN Code Elevation at 90 Degrees is Vertical.</p>
     <p> <p style="margin-left:1em;">The GPL Copyright applies to the Mathematica&reg; Code. </p>
     <p align="center" style="margin-left:1em;"><img src="Documentation/Spherical_Coordinates.png" width="486" height="435" alt=""/></p>
@@ -169,7 +170,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</p>
   <br>
       Multi Hop is different than Jones and Stephenson since we only use the Iterations loop. <br>
   <br>
-      The results are store in the matrix: <em>RayMatrix</em> which is stored in a file using Mathematica&reg;: <br>
+      The results are stored in the matrix: <em>RayMatrix</em> which is stored in a file using Mathematica&reg;: <br>
   <br>
       <em>Export[&quot;RayMatrix.wdx&quot;,RayMatrix]; </em><br>
   <br>

@@ -26,7 +26,7 @@ Ray Tracing Through the IONOSPHERE using  Mathematica® with Notebook Code.  (c)
           <td><div align="center">1</div></td>
           <td>Mathematica&reg; Notebook for Ray Tracing Radio Waves Through the IONOSPHERE. Based on the original FORTRAN Code in [Jones, Stephenson, 1975]. GPL  version 3 .</td>
           <td><a href="SourceCode/Mathematica/RayTrace_IONOSPHERE_NoteBook.nb">Notebook</a></td>
-          <td><a href="SourceCode/Mathematica/RayTrace_IONOSPHERE_NoteBook_HTML/RayTrace_IONOSPHERE_NoteBook.htm"> HTML</a></td>
+          <td><a href="https://www.radiocalc.com/Ray_Tracing_Ionosphere_Project/SourceCode/Mathematica/RayTrace_IONOSPHERE_NoteBook_HTML/RayTrace_IONOSPHERE_NoteBook.htm"> HTML</a></td>
           <td><p><a href="../MultiConductorCAD/Microstrip/Near_End_Cross_Talk_Mathematica_Code_Based_On_Ardalan_et_al_1988.png"> </a>1- Ray Path Through IONOSPHERE <a href="Documentation/RayTraceIONOSPHERE_Earth_3D_45_45/RayTrace_Ionosphere_Earth_2nd_HOP_post_process_45_45.png">View 1</a></p>
           <p>2- Ray Path Through IONOSPHERE <a href="Documentation/RayTraceIONOSPHERE_Earth_3D_45_45/RayTrace_Ionosphere_Earth_post_process_45_45.png">View 2</a></p>
           <p>3-<a href="Documentation/RayTraceIONOSPHERE_Earth_3D_45_45/arrows_k_vector_reversing.png">Propagation Vector </a></p></td>
@@ -80,21 +80,21 @@ Ray Tracing Through the IONOSPHERE using  Mathematica® with Notebook Code.  (c)
           <td><div align="center">1</div></td>
           <td>Tools for Postprocessing Ray Matrix from Ray Trace Mathematica&reg; Notebook. Propagation Vector. </td>
           <td><a href="SourceCode/Mathematica/RayPathPostProcessingPropagationVector.nb">Notebook</a></td>
-          <td><a href="SourceCode/Mathematica/RayPathPostProcessingPropagationVector_HTML/RayPathPostProcessingPropagationVector.htm">HTML</a></td>
+          <td><a href="https://www.radiocalc.com/Ray_Tracing_Ionosphere_Project/SourceCode/Mathematica/RayPathPostProcessingPropagationVector_HTML/RayPathPostProcessingPropagationVector.htm">HTML</a></td>
           <td><a href="Documentation/RayTraceIONOSPHERE_Earth_3D_45_45/arrows_k_vector_reversing.png">Propagation Vector</a></td>
         </tr>
         <tr>
           <td><div align="center">2</div></td>
           <td>Tools for Postprocessing Ray Matrix from Ray Trace Mathematica&reg; Notebook. Ray Trace Curve.</td>
           <td><a href="SourceCode/Mathematica/RayTracingPostProcessingRayPosition.nb">Notebook</a></td>
-          <td><a href="SourceCode/Mathematica/RayTracingPostProcessingRayPosition_HTML/RayTracingPostProcessingRayPosition.htm">HTML</a></td>
+          <td><a href="https://www.radiocalc.com/Ray_Tracing_Ionosphere_Project/SourceCode/Mathematica/RayTracingPostProcessingRayPosition_HTML/RayTracingPostProcessingRayPosition.htm">HTML</a></td>
           <td><a href="Documentation/RayTraceIONOSPHERE_Earth_3D_45_45/RayTrace_Ionosphere_Earth_2nd_HOP_post_process_45_45.png">Two Hop</a></td>
         </tr>
         <tr>
           <td><div align="center">3</div></td>
           <td>Mathematica&reg; Code for FORTRAN PRINTR Routine. Work in Progress. Incomplete.</td>
           <td><a href="SourceCode/Mathematica/RayPathPrintrWorkInProgress.nb">Notebook</a></td>
-          <td><a href="SourceCode/Mathematica/RayPathPrintrWorkInProgress/RayPathPrintrWorkInProgress.htm">HTML</a></td>
+          <td><a href="https://www.radiocalc.com/Ray_Tracing_Ionosphere_Project/SourceCode/Mathematica/RayPathPrintrWorkInProgress/RayPathPrintrWorkInProgress.htm">HTML</a></td>
           <td><a href="Documentation/Check_PRINTR.jpg">Preliminary</a></td>
         </tr>
       </tbody>

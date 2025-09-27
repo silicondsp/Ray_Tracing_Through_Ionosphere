@@ -1,4 +1,4 @@
-# Ray_Tracing_Through_Ionosphere
+# Ray Tracing Through Ionosphere
 Ray Tracing Through the IONOSPHERE using  Mathematica® with Notebook Code.  (c) 2018 Sasan Ardalan, The Mathematica® Code is based on the FORTRAN Code by R. Michael Jones, Judith J. Stephenson, A Versatile Three-Dimensional Ray Tracing Compute Program for Radio Waves in the Ionosphere, OT Report 75-75, US Department of Commerce, October 1975
 
 
@@ -7,7 +7,7 @@ Ray Tracing Through the IONOSPHERE using  Mathematica® with Notebook Code.  (c)
 <h1 align="center">Ray Tracing Through the IONOSPHERE</h1>
     <h1 align="center" >Open Source Mathematica &reg; Code </h1>
     <p>
-    Visit <a href="">Radio Calc</a></p>
+    Visit <a href="https://www.radiocalc.com">Radio Calc</a></p>
 </p>
  <strong>Ray Tracing Through the IONOSPHERE    FORTRAN  Code. Click <a href="Ray_Tracing_Ionosphere_Project_FORTRAN_Code.html">Here</a>.</strong>
  <img src="raytracing_fortran_results_cap7_grouped-1024x410.png">
